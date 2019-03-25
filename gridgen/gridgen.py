@@ -7,7 +7,7 @@ from typing import List
 @dataclass
 class Chord(object):
     name: str
-    signature: fractions.Fraction = Fraction(4, 4)
+    signature: fractions.Fraction = Fraction(4, 4, _normalize=False)
 
 @dataclass
 class Part(object):
