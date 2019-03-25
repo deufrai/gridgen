@@ -13,7 +13,7 @@ class Bar(object):
 class Part(object):
     bars: List[Bar] = None
 
-    def add_Bar(self, bar: Bar):
+    def add_bar(self, bar: Bar):
         if not self.bars:
             self.bars = list()
 
@@ -21,9 +21,23 @@ class Part(object):
 
 
 class Element(object):
-    pass
+    parts: List[Part] = None
+
+    def add_part(self, part: Part):
+        if not self.parts:
+            self.parts = list()
+
+        self.parts.append(part)
 
 
 class Song(object):
-    pass
+    tonality: str
+    elements: List[Element] = None
+    signature: fractions.Fraction = Fraction(4, 4, _normalize=False)
+
+    def add_element(self, element: Element):
+        if not self.elements:
+            self.elements = list()
+
+        self.elements.append(element)
 
