@@ -1,10 +1,13 @@
+import fractions
 from dataclasses import dataclass
+from fractions import Fraction
 from typing import List
 
 
 @dataclass
 class Chord(object):
     name: str
+    signature: fractions.Fraction = Fraction(4, 4)
 
 @dataclass
 class Part(object):
