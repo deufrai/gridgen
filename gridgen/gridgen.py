@@ -5,19 +5,19 @@ from typing import List
 
 
 @dataclass
-class Chord(object):
-    name: str
+class Bar(object):
+    chord: str
     signature: fractions.Fraction = Fraction(4, 4, _normalize=False)
 
 @dataclass
 class Part(object):
-    chords: List[Chord] = None
+    bars: List[Bar] = None
 
-    def add_chord(self, chord: Chord):
-        if not self.chords:
-            self.chords = list()
+    def add_Bar(self, bar: Bar):
+        if not self.bars:
+            self.bars = list()
 
-        self.chords.append(chord)
+        self.bars.append(bar)
 
 
 class Element(object):
