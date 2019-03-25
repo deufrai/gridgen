@@ -1,4 +1,4 @@
-from gridgen.gridgen import Bar, Part, Element, Song
+from gridgen import Bar, Part, Element, Song
 
 
 def test_add_bar_to_part():
