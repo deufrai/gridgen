@@ -1,34 +1,29 @@
-import fractions
 from dataclasses import dataclass
-from fractions import Fraction
 from typing import List
 
+from dataclasses_json import dataclass_json
 
+
+@dataclass_json
 @dataclass
-class Bar(object):
+class Bar:
     chords: List[str] = None
-    signature: fractions.Fraction = Fraction(4, 4, _normalize=False)
-
-    def __init__(self, chord: str):
-        self.chords = [chord, ]
+    beats: int = 4
+    division: int = 4
 
     def add_chord(self, chord: str):
+        if not self.chords:
+            self.chords = list()
         self.chords.append(chord)
 
     def set_signature(self, beats, division):
-        self.signature = Fraction(beats, division, _normalize=False)
-
-    @property
-    def beats(self):
-        return self.signature.numerator
-
-    @property
-    def division(self):
-        return self.signature.denominator
+        self.beats = beats
+        self.division = division
 
 
+@dataclass_json
 @dataclass
-class Part(object):
+class Part:
     bars: List[Bar] = None
 
     def add_bar(self, bar: Bar):
@@ -38,8 +33,9 @@ class Part(object):
         self.bars.append(bar)
 
 
+@dataclass_json
 @dataclass
-class Element(object):
+class Element:
     name: str
     parts: List[Part] = None
 
@@ -50,12 +46,14 @@ class Element(object):
         self.parts.append(part)
 
 
+@dataclass_json
 @dataclass
-class Song(object):
+class Song:
     title: str
     key: str
     elements: List[Element] = None
-    signature: fractions.Fraction = Fraction(4, 4, _normalize=False)
+    beats: int = 4
+    division: int = 4
 
     def add_element(self, element: Element):
         if not self.elements:
@@ -64,12 +62,5 @@ class Song(object):
         self.elements.append(element)
 
     def set_signature(self, beats, division):
-        self.signature = Fraction(beats, division, _normalize=False)
-
-    @property
-    def beats(self):
-        return self.signature.numerator
-
-    @property
-    def division(self):
-        return self.signature.denominator
+        self.beats = beats
+        self.division = division

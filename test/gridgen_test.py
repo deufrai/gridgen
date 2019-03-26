@@ -2,19 +2,20 @@ from gridgen import Bar, Part, Element, Song
 
 
 def test_add_chord_to_bar():
-    b = Bar("C#")
+    b = Bar()
+    b.add_chord("C#")
     b.add_chord("D")
     assert b.chords == ["C#", "D"]
 
 
 def test_bar_signature():
-    b = Bar("C")
+    b = Bar(chords=["C#"])
     b.set_signature(3, 4)
     assert (b.beats == 3 and b.division == 4)
 
 
 def test_add_bar_to_part():
-    b = Bar("C")
+    b = Bar(chords=["C#"])
     p = Part()
     p.add_bar(b)
     assert p.bars[0] == b
@@ -35,13 +36,13 @@ def test_add_element_to_song():
 
 
 def test_bar_default_signature_is_4_4():
-    b = Bar("C#m7")
-    assert (4 == b.signature.numerator and 4 == b.signature.denominator)
+    b = Bar(chords=["C#"])
+    assert (4 == b.beats and 4 == b.division)
 
 
 def test_song_default_signature_is_4_4():
     s = Song("test", "A")
-    assert (4 == s.signature.numerator and 4 == s.signature.denominator)
+    assert (4 == s.beats and 4 == s.division)
 
 
 def test_song_signature():
