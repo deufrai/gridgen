@@ -41,3 +41,13 @@ class Song(object):
 
         self.elements.append(element)
 
+    def set_signature(self, beats, division):
+        self.signature = Fraction(beats, division, _normalize=False)
+
+    @property
+    def beats(self):
+        return self.signature.numerator
+
+    @property
+    def division(self):
+        return self.signature.denominator

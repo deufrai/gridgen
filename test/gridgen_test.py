@@ -30,3 +30,9 @@ def test_bar_default_signature_is_4_4():
 def test_song_default_signature_is_4_4():
     s = Song()
     assert (4 == s.signature.numerator and 4 == s.signature.denominator)
+
+
+def test_song_signature():
+    s = Song()
+    s.set_signature(3, 4)
+    assert (s.beats == 3 and s.division == 4)
