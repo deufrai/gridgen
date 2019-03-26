@@ -26,6 +26,7 @@ class Bar:
 @dataclass
 class Part:
     bars: List[Bar] = None
+    note: str = ""
 
     def add_bar(self, bar: Bar):
         if not self.bars:
@@ -39,6 +40,7 @@ class Part:
 class Element:
     name: str
     parts: List[Part] = None
+    note: str = ""
 
     def add_part(self, part: Part):
         if not self.parts:
