@@ -39,6 +39,7 @@ class Part(object):
 
 
 class Element(object):
+    name: str
     parts: List[Part] = None
 
     def add_part(self, part: Part):
