@@ -38,6 +38,7 @@ class Part(object):
         self.bars.append(bar)
 
 
+@dataclass
 class Element(object):
     name: str
     parts: List[Part] = None
@@ -49,6 +50,7 @@ class Element(object):
         self.parts.append(part)
 
 
+@dataclass
 class Song(object):
     title: str
     key: str
