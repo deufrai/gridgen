@@ -15,6 +15,17 @@ class Bar(object):
     def add_chord(self, chord: str):
         self.chords.append(chord)
 
+    def set_signature(self, beats, division):
+        self.signature = Fraction(beats, division, _normalize=False)
+
+    @property
+    def beats(self):
+        return self.signature.numerator
+
+    @property
+    def division(self):
+        return self.signature.denominator
+
 
 @dataclass
 class Part(object):

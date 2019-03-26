@@ -7,6 +7,12 @@ def test_add_chord_to_bar():
     assert b.chords == ["C#", "D"]
 
 
+def test_bar_signature():
+    b = Bar("C")
+    b.set_signature(3, 4)
+    assert (b.beats == 3 and b.division == 4)
+
+
 def test_add_bar_to_part():
     b = Bar("C")
     p = Part()
