@@ -6,6 +6,7 @@ def test_add_chord_to_bar():
     b.add_chord("D")
     assert b.chords == ["C#", "D"]
 
+
 def test_add_bar_to_part():
     b = Bar("C")
     p = Part()
