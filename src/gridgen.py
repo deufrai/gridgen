@@ -6,8 +6,15 @@ from typing import List
 
 @dataclass
 class Bar(object):
-    chord: str
+    chords: List[str] = None
     signature: fractions.Fraction = Fraction(4, 4, _normalize=False)
+
+    def __init__(self, chord: str):
+        self.chords = [chord, ]
+
+    def add_chord(self, chord: str):
+        self.chords.append(chord)
+
 
 @dataclass
 class Part(object):
