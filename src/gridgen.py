@@ -10,6 +10,7 @@ class Bar:
     chords: List[str] = None
     beats: int = 4
     division: int = 4
+    short: bool = False
 
     def add_chord(self, chord: str):
         if not self.chords:
