@@ -50,6 +50,7 @@ class Element(object):
 
 
 class Song(object):
+    title: str
     tonality: str
     elements: List[Element] = None
     signature: fractions.Fraction = Fraction(4, 4, _normalize=False)
