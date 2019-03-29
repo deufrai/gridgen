@@ -58,6 +58,10 @@ class Element:
 
         self.parts.append(part)
 
+    @classmethod
+    def from_name_and_single_part(cls, name: str, part: Part):
+        return cls(name=name, parts=[part])
+
 
 @dataclass_json
 @dataclass
