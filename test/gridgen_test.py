@@ -21,6 +21,21 @@ def test_add_bar_to_part():
     assert p.bars[0] == b
 
 
+def test_creation_class_methods():
+    names = "ABC"
+    part = Part.from_chord_names(names)
+
+    for i, bar in enumerate(part.bars):
+        assert len(bar.chords) == 1
+        assert bar.chords[0] == names[i]
+
+    name = "TEST"
+    element = Element.from_name_and_single_part(name, part)
+    assert element.name == name
+    assert len(element.parts) == 1
+    assert element.parts[0] == part
+
+
 def test_add_part_to_element():
     p = Part()
     e = Element("test")
